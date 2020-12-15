@@ -1,8 +1,10 @@
 package com.iu.sb5.member;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -26,4 +28,8 @@ public class MemberVO {
 	@Column
 	private String email;
 	
+	// 1:1관계
+	@OneToOne(mappedBy = "memberVO", cascade = CascadeType.ALL)
+	
+	private MemberFilesVO memberFilesVO;
 }
